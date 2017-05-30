@@ -1,0 +1,12 @@
+.recipeItem {
+  padding: 5px;
+  border: 1px solid black;
+  height: 300px;
+  width: 300px;
+}
+
+.recipeItem img {
+  max-height: 100%;
+  max-width: 100%;
+
+}

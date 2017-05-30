@@ -1,0 +1,80 @@
+/*General Style*/
+
+body {
+padding-top: 0px;
+}
+
+
+
+
+/*Items*/
+
+.recipeItem {
+  padding: 5px;
+  border: 1px solid black;
+  height: 300px;
+  width: 300px;
+}
+
+.recipeItem img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.col-centered:first-child{
+  margin-top: 20px;
+}
+
+
+
+/*Navbar Styles*/
+
+nav.navbar {
+  border-bottom: 1px solid gray;
+}
+
+.navbar-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    margin:0 auto;
+}
+
+.icon-bar {
+  background-color: black;
+}
+
+.navbar-toggle {
+  z-index: 10;
+}
+
+#navFilter {
+  padding-left: 10px;
+}
+
+.navbar-collapse {
+    max-height: 100%;
+    height: 100vh;
+}
+
+/*reset styles*/
+.filterText,
+button.navbar-toggle {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+button.navbar-toggle {
+  margin: 15px 20px 15px 0;
+}
+
+.glyphicon-glass {
+  margin-left: 10px;
+}
