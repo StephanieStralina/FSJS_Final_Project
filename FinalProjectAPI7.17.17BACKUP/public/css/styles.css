@@ -1,0 +1,106 @@
+/*Style resets*/
+body {
+  padding-top: 53px;
+}
+
+
+/*Mobile First*/
+
+.recipeImg {
+  width: 100%;
+  height: auto;
+}
+
+.cardDiv {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.recipeDiv {
+  margin: 0 auto;
+  margin-top: 20px;
+  max-width: 75%;
+}
+
+
+.inner {
+  position: absolute;
+  z-index: 5;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.iconMargin {
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+
+
+.fa-heart-o,
+.fa-heart,
+.fa-plus {
+  color: white;
+  clear: both;
+  z-index: 10;
+}
+
+.navIcon {
+color: black;
+}
+
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width: 576px) {
+
+}
+
+/*Medium devices*/
+@media screen and (min-width: 768px) {
+  .recipeDiv {
+    max-width: 100%;
+
+  }
+
+  .imgWrapper {
+    height: 230px;
+    /*width: 400px;*/
+    overflow: hidden;
+  }
+  .imgWrapper img {
+    height: auto;
+    min-height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/*Large devices (desktops, 992px and up)*/
+@media screen and (min-width: 992px) and (max-width: 2500px) {
+
+
+  .card-block {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.6);
+    opacity: 0;
+    padding: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  .card:hover > .card-block {
+    opacity: 1;
+  }
+
+}
+
+.custom-select {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+
+}

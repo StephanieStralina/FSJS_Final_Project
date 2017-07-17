@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/2a59d0a89c.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Our Glorious Node Project</title>
+  </head>
+  <body>
+
+    <!--Modal Begin-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <select class="custom-select">
+            <option selected>Select a List</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Add to new List">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button">Create</button>
+              </span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+    </div>
+  <!-- End Modal-->
+
+
+    <!--Navbar Begin  -->
+      <nav class="navbar navbar-inverse bg-inverse fixed-top">
+        <span class="navbar-text mx-auto">WebsiteTitle</span>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+         <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Filter 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Filter 2</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Filter 3</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <!--Navbar End-->
+
+
+
+    <div class="cardDiv card-deck">
+      <div class="row equal" id="list-container">
+
+      </div>
+    </div>
+    <div class="card-deck">
+      <div class="row equal" id="fav-container">
+
+      </div>
+    </div>
+
+    <script id="list-template" type="text/x-handlebars-template">
+      {{#each files}}
+      <div class="col-xs col-md-4">
+        <div class="card text-center recipeDiv">
+            <div class="card-block recipeBlock">
+              <h4 class="card-title">{{name}}</h4>
+            </div>
+            <div class="imgWrapper">
+              <img class="card-img-bottom recipeImg" height="220" src= "{{img}}" alt="card image" onclick="window.open('{{url}}', '_blank');"  style="cursor: pointer;">
+            </div>
+            <div class="inner">
+              <span class="moveRight"><i class="fa fa-heart-o fa-2x iconMargin heartSaved" aria-hidden="false" onclick="appendSaved(this)"></i></span>
+              <span class="moveRight"><i class="fa fa-plus fa-2x iconMargin" aria-hidden="false" data-toggle="modal" data-target="#exampleModal"></i></span>
+            </div>
+        </div>
+      </div>
+      {{/each}}
+    </script>
+
+
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.8/handlebars.min.js"></script>
+    <script src="/js/app.js"></script>
+
+    <script>
+      $(document).ready(function() {
+      });
+      refreshFileList();
+
+    </script>
+
+  </body>
+</html>
