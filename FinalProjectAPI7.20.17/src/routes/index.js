@@ -29,14 +29,13 @@ router.use('/doc', function(req, res, next) {
 // });
 
 router.get('/file', function(req, res, next) {
-  mongoose.model('File').find({}, function(err, files) {
+  mongoose.model('File').find({deleted: {$ne: true}}, function(err, files) {
   if (err) {
     console.log(err);
     res.status(500).json(err);
   }
-
   res.json(files);
-});
+}).sort({created_at: 'desc'});
 });
 
 // router.get('/file/:fileId', function(req, res, next) {
@@ -49,12 +48,67 @@ router.get('/file', function(req, res, next) {
 // });
 
 router.post('/file', function(req, res, next) {
-  const newId = '' + FILES.length;
-  const data = req.body;
-  data.id = newId;
+  const File = mongoose.model('File');
+  const recipeFile = {
+    name: req.body.name,
+    img: req.body.img,
+    url: req.body.url,
+  };
 
-  FILES.push(data);
-  res.status(201).json(data);
+  File.create(recipeFile, function(err, newFile){
+    if (err){
+      console.log(err);
+      return res.status(500).json(err);
+    }
+    res.json(newFile);
+  });
+});
+
+
+router.put('/file/:fileId', function(req, res, next) {
+    const File = mongoose.model('File');
+    const fileId = req.params.fileId;
+
+    File.findById(fileId, function(err, file) {
+      if (err) {
+        console.log(err);
+        return res.status(500).json(err);
+      }
+      if (!file) {
+        return res.status(404).json({message: "File not found"});
+      }
+
+      file.name = req.body.name;
+      file.img = req.body.img;
+      file.url = req.body.url;
+
+      file.save(function(err, savedFile) {
+        res.json(savedFile);
+      })
+
+    })
+});
+
+router.delete('/file/:fileId', function(req, res, next) {
+  const File = mongoose.model('File');
+  const fileId = req.params.fileId;
+
+  File.findById(fileId, function(err, file) {
+    if (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+    if (!file) {
+      return res.status(404).json({message: "Error: File 404"});
+    }
+
+    file.deleted = true;
+
+    file.save(function(err, deletedFile) {
+      res.json(deletedFile);
+    })
+
+  })
 });
 
 // router.put('/file/:fileId', function(req, res, next) {

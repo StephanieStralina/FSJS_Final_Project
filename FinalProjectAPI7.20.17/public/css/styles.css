@@ -3,8 +3,12 @@ body {
   padding-top: 53px;
 }
 
+.bumper {
+  padding-top: 20px;
+}
 
-/*Mobile First*/
+/*Mobile First Styles*/
+
 
 .recipeImg {
   width: 100%;
@@ -19,9 +23,9 @@ body {
 .recipeDiv {
   margin: 0 auto;
   margin-top: 20px;
-  max-width: 75%;
+  margin-bottom: 20px;
+  max-width: 90%;
 }
-
 
 .inner {
   position: absolute;
@@ -31,28 +35,27 @@ body {
   z-index: 10;
 }
 
-.iconMargin {
-  margin-right: 6px;
-  margin-bottom: 6px;
-}
-
-
 .fa-heart-o,
 .fa-heart,
-.fa-plus {
+.fa-plus,
+.fa-pencil,
+.fa-trash-o {
   color: white;
   clear: both;
   z-index: 10;
-}
-
-.navIcon {
-color: black;
+  margin-right: 6px;
+  margin-bottom: 6px;
 }
 
 
 
 /* Small devices (landscape phones, 576px and up) */
 @media screen and (min-width: 576px) {
+
+  h4 {
+    white-space: nowrap;
+    overflow: hidden;
+  }
 
 }
 
@@ -95,12 +98,13 @@ color: black;
     opacity: 1;
   }
 
+  .card-title {
+    padding-top: 30%;
+    padding-bottom: 70%;
+  }
+
 }
 
-.custom-select {
-  width: 100%;
-  margin-bottom: 10px;
 }
-
 
 }

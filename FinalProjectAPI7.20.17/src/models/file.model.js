@@ -5,6 +5,7 @@ const FileSchema = new mongoose.Schema({
   img: String,
   url: String,
   created_at: { type: Date, default: Date.now },
+  deleted: {type: Boolean, default: false}
 });
 
 
